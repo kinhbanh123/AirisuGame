@@ -14,7 +14,7 @@ public class PlayerInfo : MonoBehaviour
     {
         
         PlayerSpeedFire[0] = 0.5f;
-        TypeBullet[0].GetComponent<BulletFly>().bulletSpeed = 10f;
+        TypeBullet[0].GetComponent<WepConfig>().bulletSpeed = 10f;
         PlayerLevel[0] = 1;
 
     }
@@ -41,7 +41,7 @@ public class PlayerInfo : MonoBehaviour
         {
             PlayerLevel[pick]++;
             if(PlayerLevel[pick] == 4) { PlayerSpeedFire[pick] = PlayerSpeedFire[pick] / 2f; }
-            TypeBullet[pick].GetComponent<BulletFly>().bulletSpeed = TypeBullet[pick].GetComponent<BulletFly>().bulletSpeed * 3;
+            TypeBullet[pick].GetComponent<WepConfig>().bulletSpeed = TypeBullet[pick].GetComponent<Shooting>().bulletSpeed * 3;
         }
         else
         {

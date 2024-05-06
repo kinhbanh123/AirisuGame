@@ -250,6 +250,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 1874283717}
   type: BL
+  bullet: {fileID: 8248484264869136313}
   bulletPool: []
   bulletSpeed: 10
 --- !u!1 &177478309
@@ -350,6 +351,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 1609031751}
   type: BL
+  bullet: {fileID: 8248484264869136313}
   bulletPool: []
   bulletSpeed: 10
 --- !u!1 &277468107
@@ -7434,6 +7436,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 560038883}
   type: BL
+  bullet: {fileID: 8248484264869136313}
   bulletPool: []
   bulletSpeed: 10
 --- !u!1 &1207714722
@@ -13071,6 +13074,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 1500530891}
   type: Normal
+  bullet: {fileID: 7013794197895067149}
   bulletPool: []
   bulletSpeed: 10
 --- !u!1 &1705365177
@@ -13124,6 +13128,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 463376834}
   type: Normal
+  bullet: {fileID: 7013794197895067149}
   bulletPool: []
   bulletSpeed: 10
 --- !u!1 &1708204887
@@ -13211,6 +13216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1720534071}
+  - component: {fileID: 1720534072}
   m_Layer: 0
   m_Name: Bloom
   m_TagString: Untagged
@@ -13237,6 +13243,24 @@ Transform:
   m_Father: {fileID: 3115799345855994947}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720534072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720534070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029bba391a83e3f44b41b9c6843398b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeWep: 0
+  LevelRN: 0
+  oldLevel: 0
+  LevelWep: []
+  fixedLevelWep: []
+  bulletSpeed: 10
 --- !u!1 &1743762202
 GameObject:
   m_ObjectHideFlags: 0
@@ -13399,6 +13423,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 1640553084}
   type: BL
+  bullet: {fileID: 8248484264869136313}
   bulletPool: []
   bulletSpeed: 10
 --- !u!1 &1874283716
@@ -13483,6 +13508,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 585495295}
   type: BL
+  bullet: {fileID: 8248484264869136313}
   bulletPool: []
   bulletSpeed: 10
 --- !u!1001 &1876910075
@@ -13665,6 +13691,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 1887274751}
   type: BL
+  bullet: {fileID: 8248484264869136313}
   bulletPool: []
   bulletSpeed: 10
 --- !u!1 &1928459988
@@ -14497,6 +14524,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 8789451839902418873}
   type: Normal
+  bullet: {fileID: 7013794197895067149}
   bulletPool: []
   bulletSpeed: 10
 --- !u!114 &1102181556522686401
@@ -14517,6 +14545,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 3633282906926855870}
   type: Normal
+  bullet: {fileID: 7013794197895067149}
   bulletPool: []
   bulletSpeed: 10
 --- !u!4 &1126579958610934755
@@ -15372,7 +15401,9 @@ MonoBehaviour:
   - 0.5
   - 0.5
   TypeBullet:
-  - {fileID: 3546136019373105572, guid: 62caefd32acc8d84b82d94464d05db15, type: 3}
+  - {fileID: 7013794197895067149}
+  - {fileID: 8248484264869136313}
+  - {fileID: 7013794197895067149}
   PlayerExp: 0
 --- !u!4 &2789488645290306310
 Transform:
@@ -15830,6 +15861,7 @@ MonoBehaviour:
   shootTimer: 0
   firePoint: {fileID: 8165005783635222642}
   type: Normal
+  bullet: {fileID: 7013794197895067149}
   bulletPool: []
   bulletSpeed: 10
 --- !u!4 &3568390390872268673
@@ -31634,6 +31666,7 @@ MonoBehaviour:
   fixedLevelWep:
   - {fileID: 1741124768561836368}
   - {fileID: 7443239160795732941}
+  bulletSpeed: 0
 --- !u!1 &7026176762065205650
 GameObject:
   m_ObjectHideFlags: 0
@@ -32254,6 +32287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3115799345855994947}
+  - component: {fileID: 8248484264869136314}
   m_Layer: 0
   m_Name: Bloom&Gloom
   m_TagString: Untagged
@@ -32261,6 +32295,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8248484264869136314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248484264869136313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029bba391a83e3f44b41b9c6843398b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeWep: 2
+  LevelRN: 0
+  oldLevel: 0
+  LevelWep:
+  - {fileID: 131668852}
+  - {fileID: 1803864045}
+  - {fileID: 1874622094}
+  - {fileID: 1127335080}
+  - {fileID: 255204969}
+  - {fileID: 1927564455}
+  fixedLevelWep: []
+  bulletSpeed: 10
 --- !u!4 &8303842624415255478
 Transform:
   m_ObjectHideFlags: 0

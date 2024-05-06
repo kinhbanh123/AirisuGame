@@ -12,14 +12,16 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     float bulletRotation = 90f;
     [SerializeField] string type;
+    [SerializeField] public GameObject bullet;
     [SerializeField] protected List<GameObject> bulletPool = new List<GameObject>();
-    public float bulletSpeed = 10f;
+    public float bulletSpeed;
 
     void Start()
     {
         shootDelay = GameObject.Find("Character").GetComponent<PlayerInfo>().checkNameAndStat(type);
         this.LoadHolder();
         LoadBulletPool();
+        bulletSpeed = bullet.GetComponent<WepConfig>().bulletSpeed;
         
     }
     protected void LoadHolder()
@@ -43,6 +45,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         shootDelay = GameObject.Find("Character").GetComponent<PlayerInfo>().checkNameAndStat(type);
+        bulletSpeed = bullet.GetComponent<WepConfig>().bulletSpeed;
         Shoot();
     }
 

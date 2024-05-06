@@ -10,6 +10,7 @@ public class WepConfig : MonoBehaviour
     [SerializeField] int oldLevel;
     [SerializeField] GameObject[] LevelWep;
     [SerializeField] GameObject[] fixedLevelWep;
+    [SerializeField] public float bulletSpeed;
     void Start()
     {
         LevelWep[0].SetActive(true);
