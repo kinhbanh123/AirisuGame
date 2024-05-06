@@ -59,7 +59,10 @@ public class Shooting : MonoBehaviour
             bullet.GetComponent<ClearTrail>().countAndClear();
             bullet.transform.parent = this.holder.transform;
             bullet.transform.Rotate(Vector3.forward, bulletRotation);
+            
             bullet.SetActive(true);
+            bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * bulletSpeed;
+            bullet.GetComponent<Rigidbody2D>().gravityScale = 0f;
 
         }
     }

@@ -14,8 +14,8 @@ public class BulletFly : MonoBehaviour
     void Update()
     {
         //this.transform.Rotate(Vector3.forward, bulletRotation);
-        Rigidbody2D bulletRigidbody = this.GetComponent<Rigidbody2D>();
-        bulletRigidbody.velocity = Vector2.up * bulletSpeed;
+       // Rigidbody2D bulletRigidbody = this.GetComponent<Rigidbody2D>();
+       // bulletRigidbody.velocity = Vector2.up * bulletSpeed;
 
     }
 }
