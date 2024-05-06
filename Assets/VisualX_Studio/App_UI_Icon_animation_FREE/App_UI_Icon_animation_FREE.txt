@@ -1,0 +1,23 @@
+////////////////////////////////////////////////////////////////////////////////////////////
+                   App_UI_Icon_animation_Pack_Volume_1
+////////////////////////////////////////////////////////////////////////////////////////////
+The set consists of 9 animated icons. They are created with the help of animator in Canvas. 
+The set has a "ColorSetter" script for easy color editing. You can also edit the color manually. 
+To edit the color using the script, follow these steps: 
+1. add the script to the object 
+2. in the Except Names column, add the name of the object that should not change color. In our case it is "back".
+3. after clicking on the "three dots" and select Recolor from the drop down menu.
+4. done
+full set of 96 icons at the link: https://u3d.as/3egd
+
+
+Demo: 
+- Demo_scene (white)
+- Demo_scene (Color)
+default resolution scene: 2560x1440
+
+Thank you for purchasing our kit. 
+
+
+VisualX
+vvvisualxxx@gmail.com
