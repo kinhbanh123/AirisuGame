@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 public class BulletFly : MonoBehaviour
 {
-    public float bulletSpeed = 5f; // Giảm tốc độ của viên đạn
-    public GameObject target;
-    public GameObject bulletPrefab;
+     public GameObject target;
 
     void Update()
     {
@@ -14,7 +12,12 @@ public class BulletFly : MonoBehaviour
         if (target != null)
         {
             Vector3 direction = (target.transform.position - transform.position).normalized;
-            FireBullet(direction);
+            Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
+
+            Rigidbody2D rb = GetComponent<Rigidbody2D>(); // Gán giá trị cho rb ở đây
+
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.velocity = direction * 3;
         }
     }
 
@@ -38,16 +41,5 @@ public class BulletFly : MonoBehaviour
         target = nearestEnemy;
     }
 
-    void FireBullet(Vector3 direction)
-    {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
-        // Kích hoạt Rigidbody của viên đạn
-        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.velocity = direction * bulletSpeed;
-
-        // Đặt hướng quay của viên đạn để nó nhìn theo hướng di chuyển
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        bulletRb.rotation = angle - 90f; // -90 là để chỉnh lại góc ban đầu của viên đạn
-    }
 }

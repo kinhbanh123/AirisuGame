@@ -25,13 +25,15 @@ public class WepConfig : MonoBehaviour
     {
         
         LevelRN = GameObject.Find("Character").GetComponent<PlayerInfo>().PlayerLevel[typeWep];
+        if (typeWep == 0) 
+        { 
         if (LevelRN != oldLevel)
         {
             if (LevelRN == 2) { LevelWep[1].SetActive(true); LevelWep[0].GetComponent<Shooting>().shootTimer = 0f; }
             if (LevelRN == 3) { LevelWep[2].SetActive(true); LevelWep[0].GetComponent<Shooting>().shootTimer = 0f; fixedLevelWep[0].GetComponent<Shooting>().shootTimer = 0f; fixedLevelWep[1].GetComponent<Shooting>().shootTimer = 0f; }
             oldLevel = LevelRN;
         }
+        }
 
-        
     }
 }

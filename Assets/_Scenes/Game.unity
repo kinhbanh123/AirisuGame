@@ -13216,7 +13216,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1720534071}
-  - component: {fileID: 1720534072}
   m_Layer: 0
   m_Name: Bloom
   m_TagString: Untagged
@@ -13243,24 +13242,6 @@ Transform:
   m_Father: {fileID: 3115799345855994947}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1720534072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720534070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029bba391a83e3f44b41b9c6843398b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeWep: 0
-  LevelRN: 0
-  oldLevel: 0
-  LevelWep: []
-  fixedLevelWep: []
-  bulletSpeed: 10
 --- !u!1 &1743762202
 GameObject:
   m_ObjectHideFlags: 0
@@ -15403,7 +15384,6 @@ MonoBehaviour:
   TypeBullet:
   - {fileID: 7013794197895067149}
   - {fileID: 8248484264869136313}
-  - {fileID: 7013794197895067149}
   PlayerExp: 0
 --- !u!4 &2789488645290306310
 Transform:
@@ -32307,7 +32287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029bba391a83e3f44b41b9c6843398b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeWep: 2
+  typeWep: 1
   LevelRN: 0
   oldLevel: 0
   LevelWep:

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7412763489426792062}
   - component: {fileID: 6368496337530762204}
   - component: {fileID: 1510955869284805118}
+  - component: {fileID: 8091259583687758766}
   m_Layer: 0
   m_Name: IceRed
   m_TagString: Bullet
@@ -151,6 +152,19 @@ MonoBehaviour:
   - {fileID: 796982365701167456}
   - {fileID: 794920450465040566}
   - {fileID: 794893169474450592}
+--- !u!114 &8091259583687758766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480123775776400989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0571914d072ce940bcf03537376c213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1001 &796261564716474756
 PrefabInstance:
   m_ObjectHideFlags: 0
