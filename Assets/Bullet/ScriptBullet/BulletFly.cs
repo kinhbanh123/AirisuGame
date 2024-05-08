@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class BulletFly : MonoBehaviour
 {
+    [SerializeField] public int bulletSpeed;
      public GameObject target;
 
     void Update()
@@ -17,7 +18,7 @@ public class BulletFly : MonoBehaviour
             Rigidbody2D rb = GetComponent<Rigidbody2D>(); // Gán giá trị cho rb ở đây
 
             rb.constraints = RigidbodyConstraints2D.None;
-            rb.velocity = direction * 3;
+            rb.velocity = direction * bulletSpeed;
         }
     }
 
