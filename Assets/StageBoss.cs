@@ -11,12 +11,27 @@ public class StageBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject parentObject = GameObject.Find("Boss");
+        Transform parentTransform = parentObject.transform;
+        foreach (Transform child in parentTransform)
+        {
+            if (child.gameObject.name == boss.name)
+            {
+                Bosu = child.gameObject;
+            }
+        }
+
         this.LoadHolder();
         int randomValueY = Random.Range(13, 16);
         Debug.Log("Warning");
         StartCoroutine(waitsec(5f));
         Vector3 spawnPosition = new Vector3(0, randomValueY, 0);
-        Bosu = Instantiate(boss, spawnPosition, Quaternion.Euler(20f, 180f, 0f));
+        //Bosu = Instantiate(boss, spawnPosition, Quaternion.Euler(20f, 180f, 0f));
+        //Bosu = GameObject.Find(boss.name);
+        Bosu.SetActive(true);
+        Bosu.transform.position = spawnPosition;
+        Bosu.transform.rotation = Quaternion.Euler(20f, 180f, 0f);
+        
         GameObject.Find("GameControl").GetComponent<GameControl>().numberEnemy = GameObject.Find("GameControl").GetComponent<GameControl>().numberEnemy * 3 - GameObject.Find("GameControl").GetComponent<GameControl>().numberEnemy*2;
     }
 
