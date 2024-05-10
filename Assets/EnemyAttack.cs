@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] protected GameObject holder;
-    [SerializeField] protected List<GameObject> bulletPool = new List<GameObject>();
+    [SerializeField] protected List<GameObject> bulletPool;
     public GameObject bulletPrefab; // Prefab của viên đạn
     public Transform target; // Đối tượng mục tiêu
     public float bulletSpeed = 5f; // Tốc độ di chuyển của viên đạn
@@ -15,8 +15,10 @@ public class EnemyAttack : MonoBehaviour
     private float nextFireTime; // Thời gian cho đến lần bắn tiếp th
     private void Start()
     {
-        StartCoroutine(wait1sec());
         this.LoadHolder();
+        bulletPool = holder.GetComponent<PoolEnemy>().bulletPool;
+        StartCoroutine(wait1sec());
+        
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
@@ -51,7 +53,8 @@ public class EnemyAttack : MonoBehaviour
             // Kiểm tra nếu có đối tượng mục tiêu
             if (target != null)
             {
-                GameObject bullet = Instantiate(bulletPrefab);
+                //GameObject bullet = Instantiate(bulletPrefab);
+                GameObject bullet = GetBulletFromPool();
                 // Tạo một viên đạn tại vị trí của vật bắn
 
                 bullet.transform.position = transform.position;
@@ -63,14 +66,15 @@ public class EnemyAttack : MonoBehaviour
                 rotation *= Quaternion.Euler(0, 0, 90);
                 // Thiết lập hướng và tốc độ di chuyển của viên đạn
                 bullet.transform.rotation = rotation;
-
+                bullet.SetActive(true);
                 // Thiết lập hướng di chuyển và tốc độ cho viên đạn
                 bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             }
         }
         else
         {
-            GameObject bullet = Instantiate(bulletPrefab);
+            //GameObject bullet = Instantiate(bulletPrefab);
+            GameObject bullet = GetBulletFromPool();
             // Tạo một viên đạn tại vị trí của vật bắn
 
             bullet.transform.position = transform.position;
@@ -82,7 +86,7 @@ public class EnemyAttack : MonoBehaviour
             // Thiết lập hướng và tốc độ di chuyển của viên đạn
             bullet.transform.rotation = rotation;
             // Thiết lập hướng di chuyển và tốc độ cho viên đạn
-
+            bullet.SetActive(true);
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }
     
@@ -92,5 +96,25 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         cd = true;
     }
+
+    GameObject GetBulletFromPool()
+    {
+        foreach (GameObject bullet in bulletPool)
+        {
+            if (!bullet.activeInHierarchy && bullet.name == bulletPrefab.name)
+            {
+                
+                return bullet;
+            }
+        }
+        GameObject newBullet = Instantiate(bulletPrefab);
+        newBullet.transform.parent = holder.transform;
+        bulletPool.Add(newBullet);
+        return newBullet;
+    }
+
+
+
+
 
 }

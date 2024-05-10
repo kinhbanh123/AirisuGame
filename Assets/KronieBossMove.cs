@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class KronieBossMove : MonoBehaviour
 {
+    [SerializeField] protected GameObject holder;
+    [SerializeField] protected List<GameObject> bulletPool;
     private Vector2 targetPosition;
     public float moveSpeed = 5f; // Tốc độ di chuyển
     private Rigidbody2D rb2D; // Tham chiếu đến Rigidbody2D của đối tượng
@@ -21,10 +23,17 @@ public class KronieBossMove : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        this.LoadHolder();
+        bulletPool = holder.GetComponent<PoolEnemy>().bulletPool;
         ChooseNewRandomPosition();
         StartCoroutine(ExecuteEvery10Seconds());
     }
+    protected void LoadHolder()
+    {
+        if (this.holder != null) return;
+        this.holder = GameObject.Find("HolderEnemy");
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -93,12 +102,18 @@ public class KronieBossMove : MonoBehaviour
     void Shoot()
     {
         // Tạo một đối tượng đạn từ prefab
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        GameObject bullet2 = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        GameObject bullet = GetBulletFromPool();
+        GameObject bullet2 = GetBulletFromPool();
         // Lấy hướng phía trước của vật
         Vector3 shootDirection = transform.right;
         Vector3 shootDirection2 = -transform.right;
         // Thiết lập tốc độ di chuyển của viên đạn theo hướng phía trước
+
+        bullet.SetActive(true);
+        bullet2.SetActive(true);
+        bullet.transform.position = transform.position;
+        bullet.transform.rotation = Quaternion.identity;
+        bullet.transform.parent = this.holder.transform;
         bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
         bullet2.GetComponent<Rigidbody2D>().velocity = shootDirection2 * bulletSpeed;
     }
@@ -117,5 +132,20 @@ public class KronieBossMove : MonoBehaviour
             SpinMove();
             Debug.Log("This command runs every 10 seconds.");
         }
+    }
+    GameObject GetBulletFromPool()
+    {
+        foreach (GameObject bullet in bulletPool)
+        {
+            if (!bullet.activeInHierarchy && bullet.name == bulletPrefab.name)
+            {
+
+                return bullet;
+            }
+        }
+        GameObject newBullet = Instantiate(bulletPrefab);
+        newBullet.transform.parent = holder.transform;
+        bulletPool.Add(newBullet);
+        return newBullet;
     }
 }

@@ -8,7 +8,8 @@ public class BossMovement : MonoBehaviour
 {
     public Transform target;
 
-    protected GameObject holder;
+    [SerializeField] protected GameObject holder;
+    [SerializeField] protected List<GameObject> bulletPool;
     [SerializeField] Animator animator;
     [SerializeField] int hp;
     [SerializeField] int maxhp;
@@ -32,6 +33,7 @@ public class BossMovement : MonoBehaviour
         screen_y = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().screen_y;
         specialMove = true;
         this.LoadHolder();
+        bulletPool = holder.GetComponent<PoolEnemy>().bulletPool;
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb2D = GetComponent<Rigidbody2D>();
         maxhp = stats.maxHp;
@@ -89,7 +91,7 @@ public class BossMovement : MonoBehaviour
             {
                 if (i > 0 && random > 50) { direction.x = direction.x + spread; }
                 if (i > 0 && random < 50) { direction.x = direction.x - spread; }
-                GameObject bullet = Instantiate(bulletPrefab[0]);
+                GameObject bullet = GetBulletFromPool(0);
                 // Tạo một viên đạn 0 tại vị trí của vật bắn
 
                 bullet.transform.position = transform.position;
@@ -101,7 +103,7 @@ public class BossMovement : MonoBehaviour
                 rotation *= Quaternion.Euler(0, 0, 90);
                 // Thiết lập hướng và tốc độ di chuyển của viên đạn
                 bullet.transform.rotation = rotation;
-
+                bullet.SetActive(true);
                 // Thiết lập hướng di chuyển và tốc độ cho viên đạn
                 bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             }
@@ -151,7 +153,21 @@ public class BossMovement : MonoBehaviour
         targetPosition = new Vector2(randomX, randomY);
     }
 
+    GameObject GetBulletFromPool(int number)
+    {
+        foreach (GameObject bullet in bulletPool)
+        {
+            if (!bullet.activeInHierarchy && bullet.name == bulletPrefab[number].name)
+            {
 
+                return bullet;
+            }
+        }
+        GameObject newBullet = Instantiate(bulletPrefab[number]);
+        newBullet.transform.parent = holder.transform;
+        bulletPool.Add(newBullet);
+        return newBullet;
+    }
 
 
 }

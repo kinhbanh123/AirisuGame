@@ -25,9 +25,10 @@ public class BulletStats : MonoBehaviour
             targetHp.TakeDamage(damage);
         }
 
-        // Huỷ bỏ viên đạn sau khi va chạm
-        Destroy(gameObject);
-        }
+                // Huỷ bỏ viên đạn sau khi va chạm
+                // Destroy(gameObject);
+                gameObject.SetActive(false);
+            }
         }
         else if (Enemy == false) 
         {

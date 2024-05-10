@@ -38,6 +38,7 @@ public class Shooting : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.SetActive(false);
+            bullet.transform.parent = holder.transform;
             bulletPool.Add(bullet);
         }
     }
@@ -76,11 +77,12 @@ public class Shooting : MonoBehaviour
         {
             if (!bullet.activeInHierarchy)
             {
+
                 return bullet;
             }
         }
         GameObject newBullet = Instantiate(bulletPrefab);
-        
+        newBullet.transform.parent = holder.transform;
         bulletPool.Add(newBullet);
         return newBullet;
     }

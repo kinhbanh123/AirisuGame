@@ -20,7 +20,8 @@ public class ClearBullet : MonoBehaviour
         }
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
         if(other.gameObject.CompareTag("SupriseThing"))
         {
