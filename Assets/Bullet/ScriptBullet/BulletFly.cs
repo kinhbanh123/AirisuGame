@@ -1,16 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class BulletFly : MonoBehaviour
 {
     [SerializeField] public int bulletSpeed;
      public GameObject target;
+    //[SerializeField] private float timeForHorming;
+    [SerializeField] private bool checkForShoot;
 
+    void OnEnable()
+    {
+        StartCoroutine(hormingTime(0.25f));
+    }
+
+    IEnumerator hormingTime(float timeForHorming)
+    {
+        checkForShoot = false;
+        yield return new WaitForSeconds(timeForHorming);
+        checkForShoot = true;
+    }
     void Update()
     {
         FindClosestTarget();
 
-        if (target != null)
+        if (target != null && checkForShoot== true)
         {
             Vector3 direction = (target.transform.position - transform.position).normalized;
             Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
