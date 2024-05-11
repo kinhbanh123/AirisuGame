@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyControl: {fileID: 0}
-  numberEnemy: 12
+  numberEnemy: 40
   numberChance: 0
 --- !u!1 &255204969
 GameObject:
@@ -15143,7 +15143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageCheck: 0
   StageToSpawn:
-  - {fileID: 2060573144734389473, guid: e43eb28030e4e564eb830d7c2b16b0da, type: 3}
   - {fileID: 3388281342595517513, guid: adc0ea225eb86b84eab458df5dc62823, type: 3}
   StageBoss:
   - {fileID: 2668615092804856736, guid: 1bd9cef9d6f6dc148972caf62b56eea5, type: 3}

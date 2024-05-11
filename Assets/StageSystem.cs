@@ -41,8 +41,6 @@ public class StageSystem : MonoBehaviour
             else
             {
                 int randomStage = Random.Range(0, StageToSpawn.Length);
-
-
                 Instantiate(StageToSpawn[randomStage], Vector3.zero, Quaternion.identity);
                 StageNumber++;
                 makeThingHarder();

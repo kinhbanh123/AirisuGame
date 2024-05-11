@@ -1,25 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class XPath : MonoBehaviour
 {
     public List<GameObject> waypoints;
+    public int NumberOfFollowLine;
     public float speed = 2;
     int index = 0;
     public bool isLoop = true;
     void Start()
     {
-      int lenghtOfWp = GameObject.Find("LineforStg").transform.childCount;
+        Transform LineParent = GameObject.Find("LineforStg" + NumberOfFollowLine).transform;
+        //int lenghtOfWp = LineParent.transform.childCount;
 
 
-        for (int i = 0; i < lenghtOfWp; i++) 
-        {
+       /* for (int i = 0; i < lenghtOfWp; i++) 
+       {
            
             string wpName = "wp (" + i+")";
-            waypoints.Add(GameObject.Find(wpName));
-
+            waypoints.Add(LineParent.Find(wpName).gameObject);
+        
+        }*/
+        foreach (Transform childTransform in LineParent)
+        {
+            
+            waypoints.Add(childTransform.gameObject);
         }
+       
+
+
     }
 
     // Update is called once per frame
@@ -39,5 +50,6 @@ public class XPath : MonoBehaviour
             }
         }
     }
+    
 }
     

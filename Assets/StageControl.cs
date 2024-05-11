@@ -25,12 +25,17 @@ public class StageControl : MonoBehaviour
         if (randomCheck == false)
         {
             int randomStageX = Random.Range(0, StageToSpawn.Length);
-            Vector3 newPosition = new Vector3(transform.position.x, 7f, transform.position.z);
-            GameObject stagecon = Instantiate(StageToSpawn[randomStageX], this.transform);
-            stagecon.transform.position = newPosition;
+            for(int i =0; i< 2; i++)
+            {
+                Vector3 newPosition = new Vector3(transform.position.x, 7f-i, transform.position.z);
+                GameObject stagecon = Instantiate(StageToSpawn[randomStageX], this.transform);
+                stagecon.transform.position = newPosition;
+                stagecon.name = "LineforStg"+i;
+                stagecon.SetActive(true);
+            }
+           
             
-            stagecon.name = "LineforStg";
-            stagecon.SetActive(true);
+            
 
         }
         spawn();
@@ -82,7 +87,7 @@ public class StageControl : MonoBehaviour
             float randomValueY = 13;
             float randomValueX = -3;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; numberOfEnemy < n; i++)
                 {
                 
                 if (randomCheck == true)
@@ -101,11 +106,17 @@ public class StageControl : MonoBehaviour
                     int pick = Random.Range(0, EnemyToSpawn.Length);
                     if (EnemyToSpawn[pick].name[0] == '$') { n = n - 4; }
                     randomValueY = randomValueY +0.75f;
-                    randomValueX = -3;
+                 
+                    randomValueX = -2;
                     //float fixedSpawn = randomValueX + (9 / n) * i;
                     Vector3 spawnPosition = new Vector3(randomValueX, randomValueY, 0); // Ví dụ: Sinh ra tại vị trí (0, 0, 0)
-                    Instantiate(EnemyToSpawn[pick], spawnPosition, Quaternion.identity);
 
+                    Vector3 spawnPosition1 = new Vector3(randomValueX, randomValueY - 1, 0);
+
+                    GameObject enAlreadySpawn = Instantiate(EnemyToSpawn[pick], spawnPosition, Quaternion.identity);
+                    enAlreadySpawn.GetComponent<XPath>().NumberOfFollowLine = 0;
+                    GameObject enAlreadySpawn1 = Instantiate(EnemyToSpawn[pick], spawnPosition1, Quaternion.identity);
+                    enAlreadySpawn1.GetComponent<XPath>().NumberOfFollowLine = 1;
 
                 }
 

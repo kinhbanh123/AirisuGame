@@ -57,8 +57,11 @@ MonoBehaviour:
   - {fileID: 6233344032177018003, guid: 7c4c083176382f64c9f0ef7f87305051, type: 3}
   - {fileID: 7003201285548632619, guid: 961199b62887cad4cba032ff91c17550, type: 3}
   - {fileID: 5048201581776450453, guid: 4d6318cf8ed5b534bb43c2a1c27aabf7, type: 3}
+  - {fileID: 707792832411876824, guid: d4dffa68cd8b094439254f8590428307, type: 3}
+  - {fileID: 8904115421602285108, guid: 0f1c0d261ebfa004ea16f5ffa2f473e0, type: 3}
   holder: {fileID: 0}
   count: 0
+  line: {fileID: 2779414383154406487}
 --- !u!1001 &7795879499875603895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,5 +126,10 @@ PrefabInstance:
 --- !u!4 &1209619372870104061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9005485600984245834, guid: 1cc67a1592fdfac428a310148ac5a572, type: 3}
+  m_PrefabInstance: {fileID: 7795879499875603895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2779414383154406487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5378126703418831328, guid: 1cc67a1592fdfac428a310148ac5a572, type: 3}
   m_PrefabInstance: {fileID: 7795879499875603895}
   m_PrefabAsset: {fileID: 0}
