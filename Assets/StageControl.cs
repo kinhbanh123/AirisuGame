@@ -105,7 +105,7 @@ public class StageControl : MonoBehaviour
                 {
                     int pick = Random.Range(0, EnemyToSpawn.Length);
                     if (EnemyToSpawn[pick].name[0] == '$') { n = n - 4; }
-                    randomValueY = randomValueY +0.75f;
+                    randomValueY = randomValueY +1.5f;
                  
                     randomValueX = -2;
                     //float fixedSpawn = randomValueX + (9 / n) * i;

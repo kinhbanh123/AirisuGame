@@ -7,11 +7,13 @@ public class XPath : MonoBehaviour
 {
     public List<GameObject> waypoints;
     public int NumberOfFollowLine;
-    public float speed = 2;
+    public float speed;
     int index = 0;
     public bool isLoop = true;
+    public bool alreadyIn = false;
     void Start()
     {
+        speed = 5f;
         Transform LineParent = GameObject.Find("LineforStg" + NumberOfFollowLine).transform;
         //int lenghtOfWp = LineParent.transform.childCount;
 
@@ -36,6 +38,8 @@ public class XPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (index == 1 && speed != 2 && alreadyIn == false)
+        { alreadyIn = true; speed = 2; }
         Vector2 destination = waypoints[index].transform.position;
         Vector2 newPos = Vector2.MoveTowards(transform.position, destination, speed*Time.deltaTime);
         transform.position = newPos;
@@ -50,6 +54,6 @@ public class XPath : MonoBehaviour
             }
         }
     }
-    
+
 }
     

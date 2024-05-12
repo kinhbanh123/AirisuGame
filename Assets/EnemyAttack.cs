@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     public GameObject bulletPrefab; // Prefab của viên đạn
     public Transform target; // Đối tượng mục tiêu
     public float bulletSpeed = 5f; // Tốc độ di chuyển của viên đạn
-    public float fireRate = 1f; // Tốc độ bắn (số viên đạn bắn mỗi giây)
+    public float fireRate; // Tốc độ bắn (số viên đạn bắn mỗi giây)
     public bool ShootSTR;
     public bool cd = false;
     private float nextFireTime; // Thời gian cho đến lần bắn tiếp th
@@ -18,8 +18,9 @@ public class EnemyAttack : MonoBehaviour
         this.LoadHolder();
         bulletPool = holder.GetComponent<PoolEnemy>().bulletPool;
         StartCoroutine(wait1sec());
-        
+        fireRate = Random.Range(1f, 3f);
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        nextFireTime = 6f;
     }
 
     void Update()
@@ -34,6 +35,7 @@ public class EnemyAttack : MonoBehaviour
             }
             // Cập nhật thời điểm bắn tiếp theo
             nextFireTime = Time.time + 1f / fireRate;
+            fireRate = Random.Range(1f, 3f);
         }
     }
     protected void LoadHolder()
