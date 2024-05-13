@@ -25,7 +25,7 @@ public class StageControl : MonoBehaviour
         if (randomCheck == false)
         {
             int randomStageX = Random.Range(0, StageToSpawn.Length);
-            for(int i =0; i< 2; i++)
+            for(int i =0; i< 3; i++)
             {
                 Vector3 newPosition = new Vector3(transform.position.x, 7f-i, transform.position.z);
                 GameObject stagecon = Instantiate(StageToSpawn[randomStageX], this.transform);
@@ -117,6 +117,8 @@ public class StageControl : MonoBehaviour
                     enAlreadySpawn.GetComponent<XPath>().NumberOfFollowLine = 0;
                     GameObject enAlreadySpawn1 = Instantiate(EnemyToSpawn[pick], spawnPosition1, Quaternion.identity);
                     enAlreadySpawn1.GetComponent<XPath>().NumberOfFollowLine = 1;
+                    GameObject enAlreadySpawn2 = Instantiate(EnemyToSpawn[pick], spawnPosition1, Quaternion.identity);
+                    enAlreadySpawn2.GetComponent<XPath>().NumberOfFollowLine = 2;
 
                 }
 

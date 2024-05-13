@@ -18,9 +18,9 @@ public class EnemyAttack : MonoBehaviour
         this.LoadHolder();
         bulletPool = holder.GetComponent<PoolEnemy>().bulletPool;
         StartCoroutine(wait1sec());
-        fireRate = Random.Range(1f, 3f);
+        fireRate = Random.Range(0.1f, 1f);
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        nextFireTime = 6f;
+        nextFireTime = Time.time + 6f;
     }
 
     void Update()
@@ -35,7 +35,7 @@ public class EnemyAttack : MonoBehaviour
             }
             // Cập nhật thời điểm bắn tiếp theo
             nextFireTime = Time.time + 1f / fireRate;
-            fireRate = Random.Range(1f, 3f);
+            fireRate = Random.Range(0.1f, 1f);
         }
     }
     protected void LoadHolder()
