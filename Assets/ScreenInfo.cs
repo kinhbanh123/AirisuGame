@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ScreenInfo : MonoBehaviour
 {
-    [SerializeField] public int screen_x;
+    [SerializeField] public int Maxscreen_x;
+    [SerializeField] public int Minscreen_x;
+
     [SerializeField] public int screen_y;
     void Start()
     {

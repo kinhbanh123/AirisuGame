@@ -20,8 +20,8 @@ public class Movement : MonoBehaviour
     }
     private void Start()
     {
-        maxX = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().screen_x;
-        minX = -maxX;
+        maxX = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().Maxscreen_x;
+        minX = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().Minscreen_x;
         maxY = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().screen_y;
 
 

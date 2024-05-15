@@ -24,12 +24,14 @@ public class BossMovement : MonoBehaviour
     public float moveSpeed = 5f; // Tốc độ di chuyển
     private Rigidbody2D rb2D; // Tham chiếu đến Rigidbody2D của đối tượng
     private Vector2 targetPosition; // Vị trí mục tiêu tiếp theo của đối tượng
-    float screen_x;
+    float maxX;
+    float minX;
     float screen_y;
 
     void Start()
     {
-        screen_x = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().screen_x;
+        maxX = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().Maxscreen_x;
+        minX = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().Minscreen_x;
         screen_y = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().screen_y;
         specialMove = true;
         this.LoadHolder();
@@ -118,8 +120,8 @@ public class BossMovement : MonoBehaviour
         {
         for (int i = 0; i < 9; i++)
             {
-                float randomValueX = Random.Range(-screen_x, screen_x);
-                float randomValueY = Random.Range(screen_y+1, screen_x+3);
+                float randomValueX = Random.Range(minX, maxX);
+                float randomValueY = Random.Range(screen_y+1, screen_y+3);
                 Vector3 spawnPosition = new Vector3(randomValueX, randomValueY, 0); // Ví dụ: Sinh ra tại vị trí (0, 0, 0)
                 Instantiate(creep[pick], spawnPosition, Quaternion.identity);
 
@@ -143,8 +145,8 @@ public class BossMovement : MonoBehaviour
 
     void ChooseNewRandomPosition()
     {
-        float minX = -screen_x-1; // Giới hạn tối thiểu của tọa độ x
-        float maxX = screen_x+1; // Giới hạn tối đa của tọa độ x
+        float minXX = minX-1; // Giới hạn tối thiểu của tọa độ x
+        float maxXX = maxX+1; // Giới hạn tối đa của tọa độ x
         float minY = screen_y/2; // Giới hạn tối thiểu của tọa độ y
         float maxY = screen_y+0.5f; // Giới hạn tối đa của tọa độ y
         // Sinh ra tọa độ x và y ngẫu nhiên trong phạm vi xác định

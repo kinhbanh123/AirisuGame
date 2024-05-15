@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83df08f0718ab4a47a58399f97d2f179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceDrop: 0a0000000a000000
+  chanceDrop: 0300000003000000
   dropItem:
   - {fileID: 867264283787013728, guid: 378e49a026da63b44b00a67e30ccdc3c, type: 3}
   - {fileID: 150746164185247904, guid: ccbe35e130ec9ab46afb3c97a68f8f97, type: 3}

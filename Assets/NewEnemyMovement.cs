@@ -16,10 +16,11 @@ public class NewEnemyMovement : MonoBehaviour
     float screen_y;
     void Start()
     {
-        screen_x = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().screen_x;
+        maxX = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().Maxscreen_x - 0.5f;
+        minX = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().Minscreen_x + 0.5f;
         screen_y = GameObject.Find("ScreenInfo").GetComponent<ScreenInfo>().screen_y;
-        minX = -(screen_x-0.5f);
-        maxX = screen_x - 0.5f;
+
+
         maxY = screen_y;
 
 
