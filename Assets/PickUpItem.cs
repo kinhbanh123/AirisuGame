@@ -12,9 +12,6 @@ public class PickUpItem : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.GetComponent<PlayerInfo>().PlayerLevelUp(number);
-
-
-
             Destroy(gameObject);
         }
 

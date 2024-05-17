@@ -46,11 +46,7 @@ public class WepConfig : MonoBehaviour
             if (LevelRN1 != oldLevel1)
         {
             if (LevelRN1 == 1) { Debug.Log("Da active 1 "); LevelWep[0].SetActive(true); LevelWep[0].GetComponent<Shooting>().shootTimer = 0f; LevelWep[1].SetActive(true); LevelWep[1].GetComponent<Shooting>().shootTimer = 0f; }
-            
             if (LevelRN1 == 2) { LevelWep[2].SetActive(true); LevelWep[2].GetComponent<Shooting>().shootTimer = 0f; LevelWep[3].SetActive(true); LevelWep[3].GetComponent<Shooting>().shootTimer = 0f; }
-            Debug.Log("Da active 2 ");
-            
-            Debug.Log("Da active 3 ");
             if (LevelRN1 == 3) { LevelWep[4].SetActive(true); LevelWep[4].GetComponent<Shooting>().shootTimer = 0f; LevelWep[5].SetActive(true); LevelWep[5].GetComponent<Shooting>().shootTimer = 0f; }
             oldLevel1 = LevelRN1;
         }

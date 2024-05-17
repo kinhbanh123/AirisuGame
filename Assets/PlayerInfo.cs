@@ -40,8 +40,10 @@ public class PlayerInfo : MonoBehaviour
         if (PlayerLevel[pick] < 4) 
         {
             PlayerLevel[pick]++;
-            if(PlayerLevel[pick] == 4) { PlayerSpeedFire[pick] = PlayerSpeedFire[pick] / 2f; }
-            TypeBullet[pick].GetComponent<WepConfig>().bulletSpeed = TypeBullet[pick].GetComponent<Shooting>().bulletSpeed * 3;
+            if(PlayerLevel[pick] == 4) 
+            {PlayerSpeedFire[pick] = PlayerSpeedFire[pick] / 2f; 
+            //TypeBullet[pick].GetComponent<WepConfig>().bulletSpeed = TypeBullet[pick].GetComponent<Shooting>().bulletSpeed * 3;
+            }
         }
         else
         {
