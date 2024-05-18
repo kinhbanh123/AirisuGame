@@ -50,8 +50,7 @@ MonoBehaviour:
   numberOfEnemy: 0
   maxNumberOfEnemy: 0
   EnemyToSpawn:
-  - {fileID: 661099231341155886, guid: 0c1f3668912bee34db9afda789bbac3c, type: 3}
-  - {fileID: 661099231341155886, guid: 3e9c7001fb3354142937cc20ce8c30f7, type: 3}
+  - {fileID: 4400905882661851504, guid: 2e8643923aa77b0439c1f47ebec931f8, type: 3}
   StageToSpawn:
   - {fileID: 5378126703418831328, guid: 1cc67a1592fdfac428a310148ac5a572, type: 3}
   - {fileID: 6233344032177018003, guid: 7c4c083176382f64c9f0ef7f87305051, type: 3}
