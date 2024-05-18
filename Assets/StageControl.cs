@@ -49,7 +49,7 @@ public class StageControl : MonoBehaviour
     protected void LoadHolder()
     {
         if (this.holder != null) return;
-        this.holder = GameObject.Find("EnemyHolder");
+        this.holder = GameObject.Find("HolderEnemy");
     }
     void countPart()
     {
@@ -114,12 +114,16 @@ public class StageControl : MonoBehaviour
 
                     GameObject enAlreadySpawn = Instantiate(EnemyToSpawn[pick], spawnPosition, Quaternion.identity);
                     enAlreadySpawn.GetComponent<XPath>().NumberOfFollowLine = 0;
+                    enAlreadySpawn.transform.parent = this.holder.transform;
                     if (numberOfLine>0) { GameObject enAlreadySpawn1 = Instantiate(EnemyToSpawn[pick], spawnPosition1, Quaternion.identity);
-                        enAlreadySpawn1.GetComponent<XPath>().NumberOfFollowLine = 1; }
+                        enAlreadySpawn1.GetComponent<XPath>().NumberOfFollowLine = 1;
+                        enAlreadySpawn1.transform.parent = this.holder.transform;
+                    }
                     if (numberOfLine > 1)
                     {
                         GameObject enAlreadySpawn2 = Instantiate(EnemyToSpawn[pick], spawnPosition1, Quaternion.identity);
                         enAlreadySpawn2.GetComponent<XPath>().NumberOfFollowLine = 2;
+                            enAlreadySpawn2.transform.parent = this.holder.transform;
                     }
 
                 }
